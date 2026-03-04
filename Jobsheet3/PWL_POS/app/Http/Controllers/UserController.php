@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     public function index(){
-        $user = UserModel::where('level_id', 1)->first();
+        $user = UserModel::firstWhere('level_id', 1);
         return view('user', ['data' => $user]);
     }
 }
