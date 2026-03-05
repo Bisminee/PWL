@@ -12,7 +12,10 @@
             <th>Jumlah User</th>
         </tr>
         <tr>
-            <td>{{ $data }}</td>
+            <td>{{ $data->user_id }}</td>
+            <td>{{ $data->username }}</td>
+            <td>{{ $data->nama }}</td>
+            <td>{{ $data->level_id }}</td>
         </tr>
 
     </table>
