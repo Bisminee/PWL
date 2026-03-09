@@ -13,18 +13,35 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Filament\Forms\Components\TextInput;
 
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    // protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::UserGroup;
 
     protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {
-        return UserForm::configure($schema);
+        return $schema
+        ->schema([
+            TextInput::make('name')
+                ->required(),
+
+            TextInput::make('email')
+                ->email()
+                ->unique(ignoreRecord: true)
+                ->required(),
+
+            TextInput::make('password')
+                ->password()
+                ->minLength(6)
+                ->required(),
+        ]);
     }
 
     public static function table(Table $table): Table
