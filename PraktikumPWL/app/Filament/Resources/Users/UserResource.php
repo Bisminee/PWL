@@ -7,6 +7,7 @@ use App\Filament\Resources\Users\Pages\EditUser;
 use App\Filament\Resources\Users\Pages\ListUsers;
 use App\Filament\Resources\Users\Schemas\UserForm;
 use App\Filament\Resources\Users\Tables\UsersTable;
+use Filament\Tables\Columns\TextColumn;
 use App\Models\User;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -21,32 +22,38 @@ class UserResource extends Resource
 
     // protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::UserGroup;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
     protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {
         return $schema
-        ->schema([
-            TextInput::make('name')
-                ->required(),
+            ->schema([
+                TextInput::make('name')
+                    ->required(),
 
-            TextInput::make('email')
-                ->email()
-                ->unique(ignoreRecord: true)
-                ->required(),
+                TextInput::make('email')
+                    ->email()
+                    ->unique(ignoreRecord: true)
+                    ->required(),
 
-            TextInput::make('password')
-                ->password()
-                ->minLength(6)
-                ->required(),
-        ]);
+                TextInput::make('password')
+                    ->password()
+                    ->minLength(6)
+                    ->required(),
+            ]);
     }
 
     public static function table(Table $table): Table
     {
-        return UsersTable::configure($table);
+        return $table
+            ->columns([
+                TextColumn::make('name'),
+                TextColumn::make('email'),
+                TextColumn::make('created_at')
+                    ->dateTime(),
+            ]);
     }
 
     public static function getRelations(): array
