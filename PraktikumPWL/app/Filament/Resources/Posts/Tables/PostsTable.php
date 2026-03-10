@@ -19,7 +19,8 @@ class PostsTable
                 //
                 TextColumn::make('title')
                     ->sortable(),
-                TextColumn::make('slug'),
+                TextColumn::make('slug')
+                    ->sortable(),
                 TextColumn::make('category.name'),
                 ColorColumn::make('color'),
                 ImageColumn::make('image')
