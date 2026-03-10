@@ -51,6 +51,7 @@ class PostForm
                     Section::make('Image Upload')
                         ->schema([
                             FileUpload::make('image')
+                                ->required()
                                 ->disk('public')
                                 ->directory('post'),
                         ])
