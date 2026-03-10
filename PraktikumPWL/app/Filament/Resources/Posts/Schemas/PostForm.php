@@ -8,6 +8,9 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\TagsInput;
+use Filament\Forms\Components\Checkbox;
+use Filament\Forms\Components\DateTimePicker;
 
 class PostForm
 {
@@ -29,6 +32,9 @@ class PostForm
                 FileUpload::make("image")
                     ->disk("public")
                     ->directory("post"),
+                TagsInput::make('tags'),
+                Checkbox::make('published'),
+                dateTimePicker::make('published_at'),
             ]);
     }
 }
