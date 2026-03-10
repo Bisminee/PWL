@@ -28,8 +28,9 @@ class PostForm
                     ->Schema([
 
                         TextInput::make('title')
-                            ->required()
-                            ->minLength(5),
+                            // ->rule('required')
+                            // ->required()
+                            ->rules("required", "min:3", "max:50"),
                         TextInput::make('slug')
                             ->required()
                             ->unique(ignoreRecord: true),
