@@ -30,7 +30,7 @@ class PostForm
                         TextInput::make('title')
                             // ->rule('required')
                             // ->required()
-                            ->rules("required", "min:3", "max:50"),
+                            ->rules(["required", "min:3", "max:50"]),
                         TextInput::make('slug')
                             ->required()
                             ->unique(ignoreRecord: true),
