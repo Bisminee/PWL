@@ -33,7 +33,10 @@ class PostForm
                             ->rules(["required", "min:3", "max:50"]),
                         TextInput::make('slug')
                             ->required()
-                            ->unique(),
+                            ->unique()
+                            ->validationMessages([
+                                'unique' => 'Slug harus unik dan tidak boleh sama.',
+                            ]),
                         Select::make('category_id')
                             ->label('Category')
                             ->options(
