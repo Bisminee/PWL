@@ -58,7 +58,8 @@ class ProductInfolist
                                     ->boolean(),
                             ]),
                     ])
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->vertical(),
                 Section::make('Product Info')
                     ->schema([
                         TextEntry::make('name')
