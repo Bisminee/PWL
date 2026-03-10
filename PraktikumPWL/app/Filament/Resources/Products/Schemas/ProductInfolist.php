@@ -43,7 +43,20 @@ class ProductInfolist
                                     ->icon('heroicon-o-currency-dollar'),
                                 TextEntry::make('stock')
                                     ->label('Stock'),
-                            ])
+                            ]),
+                        Tab::make('Media & Status')
+                            ->icon('heroicon-o-photo')
+                            ->schema([
+                                ImageEntry::make('image')
+                                    ->label('Product Image')
+                                    ->disk('public'),
+                                IconEntry::make('is_active')
+                                    ->label('Active')
+                                    ->boolean(),
+                                IconEntry::make('is_featured')
+                                    ->label('Featured')
+                                    ->boolean(),
+                            ]),
                     ])
                     ->columnSpanFull(),
                 Section::make('Product Info')
