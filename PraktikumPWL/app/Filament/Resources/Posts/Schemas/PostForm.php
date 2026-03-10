@@ -33,7 +33,7 @@ class PostForm
                             ->rules(["required", "min:3", "max:50"]),
                         TextInput::make('slug')
                             ->required()
-                            ->unique(ignoreRecord: true),
+                            ->unique(),
                         Select::make('category_id')
                             ->label('Category')
                             ->options(
