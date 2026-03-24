@@ -24,6 +24,7 @@ class PostsTable
                 //
                 TextColumn::make('id')
                     ->label('ID')
+                    ->toggleable()
                     ->sortable(),
                 TextColumn::make('title')
                     ->sortable()
