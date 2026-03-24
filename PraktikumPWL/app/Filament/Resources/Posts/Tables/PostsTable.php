@@ -43,7 +43,8 @@ class PostsTable
                     ->dateTime()
                     ->sortable(),
                 TextColumn::make('tags')
-                    ->label('Tags'),
+                ->label('Tags')
+                ->toggleable(isToggledHiddenByDefault: true),
                 IconColumn::make('published')
                     ->boolean(),
             ])->defaultSort('created_at', 'asc')
