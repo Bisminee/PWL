@@ -9,6 +9,7 @@ use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\ColorColumn;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Forms\Components\DatePicker;
@@ -21,6 +22,9 @@ class PostsTable
         return $table
             ->columns([
                 //
+                TextColumn::make('id')
+                    ->label('ID')
+                    ->sortable(),
                 TextColumn::make('title')
                     ->sortable()
                     ->searchable(),
@@ -37,6 +41,10 @@ class PostsTable
                     ->label('Created At')
                     ->dateTime()
                     ->sortable(),
+                TextColumn::make('tags')
+                    ->label('Tags'),
+                IconColumn::make('published')
+                    ->boolean(),
             ])->defaultSort('created_at', 'asc')
             ->filters([
                 Filter::make('created_at')
@@ -55,8 +63,8 @@ class PostsTable
                 SelectFilter::make('category_id')
                     ->relationship('category', 'name')
                     ->label('category')
-                    ->preload()
-,            ])
+                    ->preload(),
+            ])
             ->recordActions([
                 EditAction::make(),
             ])
