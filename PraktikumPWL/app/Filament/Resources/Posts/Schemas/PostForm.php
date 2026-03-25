@@ -39,10 +39,13 @@ class PostForm
                             ]),
                         Select::make('category_id')
                             ->label('Category')
+                            ->relationship("category", "name")
                             ->options(
                                 \App\Models\Category::all()->pluck('name', 'id')
                             )
-                            ->required(),
+                            ->required()
+                            // ->preload()
+                            ->searchable(),
                         ColorPicker::make("color"),
                         MarkdownEditor::make('body'),
                     ]),
