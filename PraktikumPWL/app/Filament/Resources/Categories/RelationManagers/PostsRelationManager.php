@@ -27,6 +27,9 @@ class PostsRelationManager extends RelationManager
                 TextInput::make('title')
                     ->required()
                     ->maxLength(255),
+                TextInput::make('slug')
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 
@@ -37,6 +40,10 @@ class PostsRelationManager extends RelationManager
             ->columns([
                 TextColumn::make('title')
                     ->searchable(),
+                TextColumn::make('slug')
+                    ->searchable(),
+                TextColumn::make('created_at')
+                    ->dateTime(),
             ])
             ->filters([
                 //

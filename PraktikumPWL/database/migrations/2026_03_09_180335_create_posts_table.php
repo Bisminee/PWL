@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('color')->nullable();
             $table->string('image')->nullable();
             $table->text('body')->nullable();
-            $table->json('tags')->nullable();
             $table->boolean('published')->default(false);
             $table->date('published_at')->nullable();
             $table->timestamps();
