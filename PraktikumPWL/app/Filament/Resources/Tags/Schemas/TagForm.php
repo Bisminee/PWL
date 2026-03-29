@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Tags\Schemas;
 
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\TextInput;
 
 class TagForm
 {
@@ -11,6 +12,7 @@ class TagForm
         return $schema
             ->components([
                 //
+                TextInput::make('name')
             ]);
     }
 }
