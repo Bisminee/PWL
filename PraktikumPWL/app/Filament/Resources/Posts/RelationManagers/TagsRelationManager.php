@@ -35,8 +35,9 @@ class TagsRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('name')
             ->columns([
+                TextColumn::make('id'),
                 TextColumn::make('name')
-                    ->searchable(),
+                    // ->searchable(),
             ])
             ->filters([
                 //
@@ -51,10 +52,10 @@ class TagsRelationManager extends RelationManager
                 DeleteAction::make(),
             ])
             ->toolbarActions([
-                BulkActionGroup::make([
-                    DetachBulkAction::make(),
-                    DeleteBulkAction::make(),
-                ]),
+                // BulkActionGroup::make([
+                //     DetachBulkAction::make(),
+                //     DeleteBulkAction::make(),
+                // ]),
             ]);
     }
 }
