@@ -60,9 +60,13 @@ class PostForm
                         ])
                 ]),
 
-                Section::make('Meta')
+                Section::make('Meta Information')
                     ->schema([
-                        TagsInput::make('tags'),
+                        // TagsInput::make('tags'),
+                        Select::make("tags")
+                            ->relationship("tags", "name")
+                            ->multiple()
+                            ->preload(),
                         Checkbox::make('published'),
                         DatePicker::make('published_at'),
                     ]),
