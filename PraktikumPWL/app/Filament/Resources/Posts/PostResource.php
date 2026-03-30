@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use App\Filament\Resources\Posts\RelationManagers\TagsRelationManager as RelationManagersTagsRelationManager;
 
 class PostResource extends Resource
 {
@@ -36,6 +37,7 @@ class PostResource extends Resource
     {
         return [
             //
+            RelationManagersTagsRelationManager::class
         ];
     }
 
